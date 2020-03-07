@@ -41,17 +41,6 @@ function [x] = modulation_demapper_soft(iq, ord, method, N0)
 
   [A, S0, S1] = modulation_alphabet(ord);
 
-  try
-    x = modulation_demapper_soft_mex(iq, ord, method, N0, A, S0-1, S1-1);
-    return;
-  catch
-    persistent flag
-    if isempty(flag)
-      disp('modulation_demapper_soft: compile mex file to reduce execution time');
-      flag = 0;
-    end
-  end
-
   if strcmpi(method, 'True LLR')
     for idx = 1 : numel(iq)
       for q = 1 : ord

@@ -24,17 +24,6 @@ function [iq] = modulation_mapper(x, Q_m)
   assert(mod(length(x), Q_m) == 0, 'size do not match modulation order');
 
   mod_tbl = modulation_alphabet(Q_m);
-
-  try
-    iq = modulation_mapper_mex(x, Q_m, mod_tbl);
-    return;
-  catch
-    persistent flag
-    if isempty(flag)
-      disp('modulation_mapper: compile mex file to reduce execution time');
-      flag = 0;
-    end
-  end
   
   sz = size(x);
   sz(1) = sz(1) / Q_m;
