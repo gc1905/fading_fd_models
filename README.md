@@ -1,0 +1,1 @@
+This repository contains a set of MATLAB functions and batch files that I developed when conducting research on emulation of fast fading channel models. The repository was created upon a request to share my work. Note that there is no intention to keep the code within this repository up to date and commit new changes. Use at your own risk.
